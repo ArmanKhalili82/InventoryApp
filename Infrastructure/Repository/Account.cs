@@ -87,9 +87,9 @@ namespace Infrastructure.Repository
             }
 
             //var result = CheckResult(await _userManager.AddClaimAsync((await FindUserByEmail(model.Email)), userClaims));
-            var result = CheckResult(userManager, userClaims);
             var findUserByEmail = await FindUserByEmail(model.Email);
-            var userManager = await _userManager.AddClaimAsync(findUserByEmail);
+            var userManager = await _userManager.AddClaimAsync(findUserByEmail, userClaims);
+            var result = CheckResult(userManager);
 
             if (result.Flag)
                 return new ServiceResponse(true, "User Created");

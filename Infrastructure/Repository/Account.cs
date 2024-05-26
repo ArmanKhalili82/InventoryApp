@@ -88,7 +88,7 @@ namespace Infrastructure.Repository
 
             //var result = CheckResult(await _userManager.AddClaimAsync((await FindUserByEmail(model.Email)), userClaims));
             var findUserByEmail = await FindUserByEmail(model.Email);
-            var userManager = await _userManager.AddClaimAsync(findUserByEmail, userClaims);
+            var userManager = await _userManager.AddClaimAsync(findUserByEmail, userClaims[0]) ;
             var result = CheckResult(userManager);
 
             if (result.Flag)

@@ -1,8 +1,10 @@
+using Application.DependencyInjection;
 using Infrastructure.DependencyInjection;
 using WebUI;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructureService(builder.Configuration);
+builder.Services.AddAplicationService();
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
